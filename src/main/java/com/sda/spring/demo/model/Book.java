@@ -12,7 +12,7 @@ public class Book {
 
     private String title;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -22,9 +22,10 @@ public class Book {
                     @JoinColumn(name = "author_id", referencedColumnName = "id"))
     private Set<Author> authors;
 
-    public Book(String title) {
+    public Book(String title, Category category, Set<Author> authors) {
         this.title = title;
-
+        this.category = category;
+        this.authors = authors;
     }
 
     public Book() {
@@ -61,6 +62,5 @@ public class Book {
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
     }
-
 
 }

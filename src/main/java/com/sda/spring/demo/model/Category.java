@@ -13,9 +13,8 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Book> books;
 
-    public Category(String name, Set<Book> books) {
+    public Category(String name) {
         this.name = name;
-        this.books = books;
     }
 
     public Category() {
@@ -37,9 +36,7 @@ public class Category {
         this.name = name;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
+
 
     public void setBooks(Set<Book> books) {
         this.books = books;
