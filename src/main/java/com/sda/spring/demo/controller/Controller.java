@@ -1,5 +1,6 @@
 package com.sda.spring.demo.controller;
 
+import com.sda.spring.demo.Services.BookService;
 import com.sda.spring.demo.model.Author;
 import com.sda.spring.demo.model.Book;
 import com.sda.spring.demo.model.Category;
@@ -17,7 +18,7 @@ import java.util.List;
 public class Controller {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookService bookRService;
     @Autowired
     private AuthorRepository authorRepository;
     @Autowired
@@ -29,7 +30,7 @@ public class Controller {
     }
     @RequestMapping(value = "/books", method = RequestMethod.GET)
     public List<Book> showBookList(){
-        return bookRepository.findAll();
+        return bookRService.getBooks();
     }
     @RequestMapping(value = "/authors", method = RequestMethod.GET)
     public List<Author> showAuthorList(){
